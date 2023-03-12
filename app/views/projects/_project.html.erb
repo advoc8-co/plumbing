@@ -1,0 +1,15 @@
+<p class="mb-2">
+  <%= project.name %> / <%= project.company.name %>
+
+  <div class="text-gray-400 mb-2">
+    Stakeholders - <%= project.stakeholders.map(&:name).join(", ") %>
+  </div>
+
+  <div class="text-gray-400 mb-2">
+    Posts - <%= project.posts.map(&:title).join(", ") %>
+  </div>
+
+  <div class="text-gray-400 mb-4">
+    Users - <%= project.users.map(&:name).join(", ") %>
+  </div>
+</p>

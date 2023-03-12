@@ -1,0 +1,16 @@
+<div>
+  <div class="mb-4 text-gray-400">
+    Current user - <%= Current.user.name %> / <%= Current.company.name %>
+  </div>
+  <hr class="mb-4">
+
+  <h1 class="font-bold text-4xl mb-4">
+    All Projects
+  </h1>
+
+  <%= render collection: @projects, partial: "projects/project" %>
+</div>
+
+<div id="count">
+  <%= pluralize @projects.count, "project" %> found
+</div>
