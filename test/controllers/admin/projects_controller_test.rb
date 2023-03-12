@@ -5,7 +5,7 @@ class Admin::ProjectsControllerTest < ActionDispatch::IntegrationTest
     super
     create_list(:project, 2)
     Tenant.switch(Company.find_by(name: "second")) { create(:project) }
-    Tenant.detenant!
+    Tenant.clear!
   end
 
   test "index" do

@@ -1,6 +1,6 @@
 # NOTE: equivalent to Apartment helper class
-# TODO: should maybe live somewhere else...
-# TODO: should switches be restricted to those valid for Current.user
+# TODO: should live somewhere else...
+# TODO: should switches be restricted to those valid for Current.user?
 # TODO: should we use Current for current_user?
 # TODO: should we also store current CompanyUser?
 class Tenant
@@ -21,7 +21,7 @@ class Tenant
     Current.company
   end
 
-  def self.detenant!
+  def self.clear!
     Current.company = nil
   end
 
