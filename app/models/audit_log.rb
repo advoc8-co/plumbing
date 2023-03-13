@@ -3,6 +3,8 @@ class AuditLog < ApplicationRecord
 
   belongs_to :company
   belongs_to :user
+
+  # TODO: polymorphic join to parent? useful if we are e.g. going to show history in UI
 end
 
 # == Schema Information
