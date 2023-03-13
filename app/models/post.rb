@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  include Audited
   include Tenanted
 
   belongs_to :user
