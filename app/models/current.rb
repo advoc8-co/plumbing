@@ -9,4 +9,10 @@ class Current < ActiveSupport::CurrentAttributes
 
     company
   end
+
+  # NOTE: intentionally blows up unless user is set first...
+  def company=(company)
+    raise unless user.company_users.map(&:company).include? company
+    super
+  end
 end

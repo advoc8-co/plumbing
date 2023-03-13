@@ -1,39 +1,16 @@
 # NOTE: equivalent to Apartment helper class
 # TODO: should live somewhere else...
-# TODO: should switches be restricted to those valid for Current.user?
-# TODO: should we use Current for current_user?
-# TODO: should we also store current CompanyUser?
 class Tenant
-  def self.switch!(company)
+  def self.switch!(company, user)
+    raise unless company && user
+    Current.user = user
     Current.company = company
   end
 
-  def self.switch(company)
-    current_company = Current.company
+  def self.switch_company!(company)
+    raise unless company
     Current.company = company
-
-    yield if block_given?
-
-    Current.company = current_company
   end
 
-  def self.current
-    Current.company
-  end
-
-  def self.clear!
-    Current.company = nil
-  end
-
-  def self.all
-    current_company = Current.company
-
-    Company.all.each do |company|
-      Current.company = company
-
-      yield company if block_given?
-    end
-
-    Current.company = current_company
-  end
+  # TODO: block versions?
 end
