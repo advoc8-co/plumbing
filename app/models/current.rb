@@ -15,4 +15,9 @@ class Current < ActiveSupport::CurrentAttributes
     raise unless user.company_users.map(&:company).include? company
     super
   end
+
+  # TODO: bit weird? useful in tests...
+  def company_user
+    CompanyUser.find_sole_by(company: company, user: user)
+  end
 end

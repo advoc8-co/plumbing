@@ -44,15 +44,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_021054) do
 
   create_table "posts", force: :cascade do |t|
     t.bigint "company_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "company_user_id", null: false
     t.bigint "project_id", null: false
     t.string "title"
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_posts_on_company_id"
+    t.index ["company_user_id"], name: "index_posts_on_company_user_id"
     t.index ["project_id"], name: "index_posts_on_project_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "project_stakeholders", force: :cascade do |t|
@@ -89,8 +89,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_021054) do
   add_foreign_key "company_users", "companies"
   add_foreign_key "company_users", "users"
   add_foreign_key "posts", "companies"
+  add_foreign_key "posts", "company_users"
   add_foreign_key "posts", "projects"
-  add_foreign_key "posts", "users"
   add_foreign_key "project_stakeholders", "projects"
   add_foreign_key "project_stakeholders", "stakeholders"
   add_foreign_key "projects", "companies"

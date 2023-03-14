@@ -11,7 +11,11 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "create" do
-    p = Post.create! title: "Post title", user: Current.user, project: create(:project)
+    p = Post.create!({
+      title: "Post title",
+      company_user: Current.company_user,
+      project: create(:project)
+    })
     assert_equal "Post title", p.reload.title
   end
 end

@@ -1,9 +1,9 @@
-# TODO: should this be tenanted?
+# TODO: could be tenanted, but probably no need...
 class CompanyUser < ApplicationRecord
-  # include Tenanted
-
   belongs_to :company
   belongs_to :user
+
+  has_many :posts # dependent: ? (soft delete)
 end
 
 # == Schema Information

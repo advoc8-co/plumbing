@@ -23,7 +23,7 @@ end
 
 4.times do
   Post.create({
-    user: User.all.sample,
+    company_user: CompanyUser.all.sample,
     project: Project.all.sample,
     title: Faker::Lorem.words(number: 2).join(" "),
     body: Faker::Lorem.paragraphs(number: 3)
