@@ -35,6 +35,7 @@ module Audited
     })
   end
 
+  # TODO: this could be cleverer - e.g. store before and after for strings
   def changelog(action)
     return nil unless action == "update"
     "Not recorded - implement custom changelog method in #{self.class.name}."
