@@ -12,5 +12,9 @@ class ProjectsTest < ApplicationSystemTestCase
     visit projects_url
     assert_selector "h1", text: "Projects"
     assert_selector "#count", text: "2 projects found"
+
+    # multi page / test Current...
+    click_on "Posts"
+    assert_selector "h1", text: "Posts"
   end
 end
